@@ -1,5 +1,5 @@
 # C Socket example
-Server reads file and stores it in hash table.
+Server reads file and stores it in a hash table.
 Client can connect to server socket and query for values in indata.dat.
 
 
