@@ -20,7 +20,7 @@
 #pragma comment (lib, "AdvApi32.lib")
 
 WORD socket_version;								// Socket version
-WSADATA wsa_data;									// Socket information			
+WSADATA wsa_data;									// Socket information
 
 int client_s;										// Client socket descriptor
 struct sockaddr_in server_addr;						// Server Internet address

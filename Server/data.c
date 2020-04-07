@@ -18,15 +18,11 @@ unsigned long hash_code(unsigned int size, const char* key) {
 struct hash_table* create_hash_table(int size) {
 
 	struct hash_table* tbl = (struct hash_table*)malloc(sizeof(struct hash_table));
-	if (tbl) {
-		tbl->size = size;
-		tbl->list = (struct hash_node**)malloc(sizeof(struct hash_node*) * size);
-		int i;
-		for (i = 0; i < size; i++)
-			tbl->list[i] = NULL;
-		return tbl;
-	}
-	return NULL;
+	
+	tbl->size = size;
+	tbl->list = calloc((size_t)tbl->size, sizeof(struct hash_node*));
+	
+	return tbl;
 }
 
 char* lookup(struct hash_table* tbl, char* key) {

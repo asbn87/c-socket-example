@@ -10,7 +10,7 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
-#define PORT_NUM 8888
+#define PORT_NUM 8888								// Port used
 #define DEFAULT_BUFLEN	4096						// Default buf length of i/o messages
 
 // Need to link with Ws2_32.lib, Mswsock.lib, and Advapi32.lib
