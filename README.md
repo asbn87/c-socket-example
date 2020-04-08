@@ -8,11 +8,3 @@ Client can connect to server socket and query for values in indata.dat.
 
 * Set solution to multiple startup projects as seen in the image.
 * Run with F5.
-
-
-# Improvements
-```
-1. Dynamic memory allocation for hash table.
-2. Break out file functions in data.
-3. Dont use variables stored in .h files in main.
-```
