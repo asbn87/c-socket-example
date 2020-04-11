@@ -5,4 +5,4 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-int get_input(char* buff, int maxSize);				// Get input from user
+int get_input(char* buff, int maxSize);                         // Get input from user
