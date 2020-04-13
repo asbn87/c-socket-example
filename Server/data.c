@@ -7,7 +7,7 @@ unsigned long hash_code(unsigned int size, const char* key)
     unsigned int key_len = strlen(key);
 
     for (; i < key_len; ++i)
-	value = value * 37 + key[i];
+        value = value * 37 + key[i];
 
     value = value % size;
 
@@ -32,10 +32,10 @@ char* lookup(struct hash_table* tbl, char* key)
 
     while (temp)
     {
-	if (strcmp(temp->key, key) == 0)
-	    return temp->val;
+        if (strcmp(temp->key, key) == 0)
+            return temp->val;
 
-	temp = temp->next;
+        temp = temp->next;
     }
     return "";
 }
@@ -55,49 +55,49 @@ void init_hash_table(struct hash_table* mem)
 
     while ((ch = fgetc(file_p)) != EOF) {
 
-	if (ch == '\n')
-	{
-	    pos_list = hash_code(mem->size, key);
-	    struct hash_node* list = mem->list[pos_list];
-	    struct hash_node* node = (struct hash_node*)malloc(sizeof(struct hash_node));
-	    struct hash_node* tmp = list;
+        if (ch == '\n')
+        {
+            pos_list = hash_code(mem->size, key);
+            struct hash_node* list = mem->list[pos_list];
+            struct hash_node* node = (struct hash_node*)malloc(sizeof(struct hash_node));
+            struct hash_node* tmp = list;
 
-	    while (tmp) {
-		if (tmp->key == key)
-		{
-		    strncpy(tmp->val, value, 6);
-		    break;
-		}
-		tmp = tmp->next;
-	    }
+            while (tmp) {
+                if (tmp->key == key)
+                {
+                    strncpy(tmp->val, value, 6);
+                    break;
+                }
+                tmp = tmp->next;
+            }
 
-	    if (node) 
-	    {
-		strncpy(node->key, key, 16);
-		strncpy(node->val, value, 6);
-		node->next = list;
-	    }
+            if (node)
+            {
+                strncpy(node->key, key, 16);
+                strncpy(node->val, value, 6);
+                node->next = list;
+            }
 
-	    mem->list[pos_list] = node;
-	    memset(key, 0, sizeof(key));
-	    memset(value, 0, sizeof(value));
-	    value_flag = 0;
-	    pos_node = 0;
-	    continue;
-	}
+            mem->list[pos_list] = node;
+            memset(key, 0, sizeof(key));
+            memset(value, 0, sizeof(value));
+            value_flag = 0;
+            pos_node = 0;
+            continue;
+        }
 
-	if (ch == '\t')
-	{
-	    pos_node = 0;
-	    value_flag = 1;
-	    continue;
-	}
+        if (ch == '\t')
+        {
+            pos_node = 0;
+            value_flag = 1;
+            continue;
+        }
 
-	if (value_flag == 0)
-	    key[pos_node++] = ch;
+        if (value_flag == 0)
+            key[pos_node++] = ch;
 
-	if (value_flag == 1)
-	    value[pos_node++] = ch;
+        if (value_flag == 1)
+            value[pos_node++] = ch;
     }
 
     printf("Closing file...\n");

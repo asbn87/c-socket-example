@@ -8,8 +8,8 @@ int get_input(char* buff, int maxSize)
 
     if (buff[indexOfLastChar] == '\n')
     {
-	buff[indexOfLastChar] = 0;
-	return 1;
+        buff[indexOfLastChar] = 0;
+        return 1;
     }
 
     int hasExtra = 0;
